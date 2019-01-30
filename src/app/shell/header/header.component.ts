@@ -10,7 +10,7 @@ import { AuthenticationService, I18nService } from '@app/core';
 })
 export class HeaderComponent implements OnInit {
   menuHidden = true;
-isSession :boolean;
+  isSession: boolean;
 
   constructor(
     private router: Router,
@@ -20,7 +20,6 @@ isSession :boolean;
 
   ngOnInit() {
     this.isSession = this.authenticationService.credentials ? true : false;
-
   }
 
   toggleMenu() {
@@ -35,7 +34,7 @@ isSession :boolean;
     this.authenticationService.logout().subscribe();
     this.isSession = this.authenticationService.credentials ? true : false;
   }
-  login(){
+  login() {
     this.router.navigate(['/login'], { replaceUrl: true });
   }
   get currentLanguage(): string {
@@ -50,18 +49,18 @@ isSession :boolean;
     const credentials = this.authenticationService.credentials;
     return credentials ? credentials.username : null;
   }
-get role() :string | null{
-  const credentials = this.authenticationService.credentials;
-  return credentials ? credentials.role : null;
-}
-get admin():boolean {
-  if(this.role === 'ADMIN'){
-    return true;
-  } else{
-    return false;
+  get role(): string | null {
+    const credentials = this.authenticationService.credentials;
+    return credentials ? credentials.role : null;
   }
-}
-  get session() : string {
+  get admin(): boolean {
+    if (this.role === 'ADMIN') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  get session(): string {
     return this.session;
   }
 }

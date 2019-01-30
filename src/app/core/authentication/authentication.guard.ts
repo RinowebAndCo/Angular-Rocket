@@ -11,8 +11,10 @@ export class AuthenticationGuard implements CanActivate {
   constructor(private router: Router, private authenticationService: AuthenticationService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let credentials = sessionStorage.getItem("credentials") ? JSON.parse(sessionStorage.getItem("credentials")) :JSON.parse(localStorage.getItem("credentials"));
-    if (this.authenticationService.isAuthenticated() && credentials['role'] === "ADMIN") {
+    let credentials = sessionStorage.getItem('credentials')
+      ? JSON.parse(sessionStorage.getItem('credentials'))
+      : JSON.parse(localStorage.getItem('credentials'));
+    if (this.authenticationService.isAuthenticated() && credentials['role'] === 'ADMIN') {
       return true;
     }
 

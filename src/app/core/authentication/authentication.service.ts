@@ -36,13 +36,12 @@ export class AuthenticationService {
    * @param context The login parameters.
    * @return The user credentials.
    */
-  
-  login(context: LoginContext): Observable<Credentials> {
 
+  login(context: LoginContext): Observable<Credentials> {
     // Replace by proper authentication call
-    let roles : string;
-    if(context.username === 'Rinoweb&Admin' && context.password === 'Rinoweb&Admin&Pass'){
-     roles = 'ADMIN';
+    let roles: string;
+    if (context.username === 'Rinoweb&Admin' && context.password === 'Rinoweb&Admin&Pass') {
+      roles = 'ADMIN';
     } else {
       roles = 'USER';
     }

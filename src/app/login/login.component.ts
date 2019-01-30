@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
@@ -24,14 +24,11 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private i18nService: I18nService,
-    private authenticationService: AuthenticationService,
+    private authenticationService: AuthenticationService
   ) {
     this.createForm();
   }
-  ngOnInit() {
-    
-  }
-
+  ngOnInit() {}
 
   login() {
     log.debug(this.loginForm.value);
